@@ -27,7 +27,6 @@ plugins {
     alias(libs.plugins.jetbrainsKotlinAndroid) apply false
     alias(libs.plugins.androidApplication) apply false
     alias(libs.plugins.room) apply false
-    alias(libs.plugins.kotlinCompose) apply false
 }
 
 

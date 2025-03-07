@@ -12,6 +12,19 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    buildFeatures {
+        buildConfig = true
+    }
+
+    buildTypes {
+        release {
+            buildConfigField("String", "BASE_URL", "\"https://dummyjson.com/recipes/\"")
+        }
+        debug {
+            buildConfigField("String", "BASE_URL", "\"https://dummyjson.com/recipes/\"")
+        }
+    }
+
 }
 
 dependencies {

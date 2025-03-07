@@ -18,3 +18,5 @@ rootProject.name = "EasyRecipe"
 include(":app")
 include(":convention")
 include(":network")
+include(":features")
+include(":features:search")

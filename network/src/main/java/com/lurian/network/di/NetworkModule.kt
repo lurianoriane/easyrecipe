@@ -1,5 +1,6 @@
 package com.lurian.network.di
 
+import com.lurian.network.BuildConfig
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -50,7 +51,7 @@ class NetworkModule {
         return Retrofit.Builder()
             .addConverterFactory(convertFactory)
             .client(okHttpClient)
-            .baseUrl("https://dummyjson.com/recipes/")
+            .baseUrl(BuildConfig.BASE_URL)
             .build()
     }
 }
