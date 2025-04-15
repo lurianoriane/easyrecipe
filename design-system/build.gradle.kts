@@ -5,10 +5,10 @@ plugins {
 }
 
 android {
-    namespace = "com.example.easyrecipe"
+    namespace = "com.example.design_system"
 
     defaultConfig {
-        applicationId = "com.example.easyrecipe"
+        applicationId = "com.example.design_system"
         versionCode = 1
         versionName = "1.0"
 
@@ -44,6 +44,9 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.coil)
+    implementation(libs.coil.netwok)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

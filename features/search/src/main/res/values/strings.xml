@@ -1,3 +1,5 @@
 <resources>
+    <string name="app_name">Easy Recipe</string>
     <string name="search_screen_name">Pesquisar</string>
+
 </resources>

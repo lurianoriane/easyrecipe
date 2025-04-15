@@ -29,4 +29,5 @@ dependencies {
     implementation(libs.coil.netwok)
 
     implementation(project(":network"))
+    implementation(project(":design-system"))
 }

@@ -1,23 +1,16 @@
-package com.example.easyrecipe.presentation
+package com.example.search.presentation.view
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.rounded.ArrowBack
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -34,29 +27,39 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.easyrecipe.R
-import com.example.easyrecipe.retrieveRecipeList
+import com.example.design_system.components.RectangleCard
+import com.example.search.domain.model.Recipe
+import com.example.search.presentation.intent.SearchRecipeIntent
+import com.example.search.presentation.state.SearchRecipeUiState
+import com.lurian.search.R
+
+@Composable
+fun SearchScreen(state: SearchRecipeUiState, onIntent: (SearchRecipeIntent) -> Unit) {
+    when {
+        state.isError -> {}
+        state.isLoading -> {}
+        else -> {
+            SearchScreenSuccess(state, onIntent)
+        }
+    }
+}
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-@Preview
-fun SearchScreenSuccess(modifier: Modifier = Modifier) {
+fun SearchScreenSuccess(state: SearchRecipeUiState, onIntent: (SearchRecipeIntent) -> Unit) {
     Scaffold(topBar = {
         TopAppBar(
             navigationIcon = {
                 IconButton(onClick = { }) {
                     Icon(
+                        // Icons.Rounded.ArrowBack, change icon
                         Icons.Rounded.ArrowBack, contentDescription = "back button"
                     )
                 }
@@ -81,25 +84,26 @@ fun SearchScreenSuccess(modifier: Modifier = Modifier) {
         )
     }, content = {
         Column(modifier = Modifier.padding(it)) {
-            SearchComponent()
-            SearchResultList()
+            SearchComponent(onIntent)
+            SearchResultList(state.searchRecipe)
         }
     })
 }
 
 @Composable
-fun SearchResultList() {
-    val recipeList = retrieveRecipeList()
+fun SearchResultList(recipeList: List<Recipe>) {
     LazyColumn {
-        items(count = recipeList.count(), itemContent = {
-            val recipe = recipeList[it]
-            HorizontalCard(recipe.name, recipe.image)
-        })
+        items(recipeList) { recipe ->
+            RectangleCard(
+                recipeName = recipe.name,
+                imageRecipe = recipe.image
+            )
+        }
     }
 }
 
 @Composable
-fun SearchComponent() {
+fun SearchComponent(onIntent: (SearchRecipeIntent) -> Unit) {
     var valueOnTextField by remember {
         mutableStateOf("")
     }
@@ -127,76 +131,9 @@ fun SearchComponent() {
     )
 }
 
-@Composable
-fun HorizontalCard(recipeName: String, imageRecipe: Int) {
-    Card(
-        shape = RoundedCornerShape(16.dp),
-        modifier = Modifier
-            .padding(horizontal = 24.dp, vertical = 8.dp)
-            .height(100.dp)
-            .fillMaxWidth(),
-        elevation = CardDefaults.cardElevation(defaultElevation = 8.dp),
-        colors = CardDefaults.cardColors(containerColor = Color.White),
-        onClick = {}
-    ) {
-        Row(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(8.dp),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceBetween
-
-        ) {
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Image(
-                    painter = painterResource(id = imageRecipe),
-                    contentDescription = recipeName,
-                    contentScale = ContentScale.Inside,
-                    alignment = Alignment.Center,
-                    modifier = Modifier.clip(RoundedCornerShape(12.dp))
-                )
-                Column(
-                    modifier = Modifier
-                        .fillMaxHeight()
-                        .padding(8.dp),
-                    verticalArrangement = Arrangement.Top,
-                    horizontalAlignment = Alignment.Start
-                ) {
-                    Text(
-                        text = recipeName,
-                        modifier = Modifier,
-                        style = TextStyle(fontWeight = FontWeight.Bold),
-                        fontSize = 16.sp,
-                        textAlign = TextAlign.Start
-                    )
-                    Spacer(modifier = Modifier.height(4.dp))
-                }
-            }
-            IconButton(
-                modifier = Modifier.fillMaxHeight(),
-                content = {
-                    Image(
-                        painter = painterResource(id = R.drawable.arrow_right_small),
-                        contentDescription = "food image",
-                        contentScale = ContentScale.Inside,
-                        alignment = Alignment.Center
-                    )
-                }, onClick = { }
-            )
-        }
-    }
-}
-
-
-@Preview(showBackground = true)
-@Composable
-private fun HorizontalCardPreview() {
-    val recipeList = retrieveRecipeList()
-    HorizontalCard(recipeList[0].name, recipeList[0].image)
-}
 
 @Preview(showBackground = true)
 @Composable
 private fun SearchComponentPreview() {
-    SearchComponent()
+    SearchComponent(onIntent = {})
 }
