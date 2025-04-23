@@ -1,5 +1,5 @@
 package com.example.search.presentation.intent
 
 sealed interface SearchRecipeIntent {
-    data class Search(val nameRecipe: String) : SearchRecipeIntent
+    data class OnSearchRecipe(val nameRecipe: String) : SearchRecipeIntent
 }

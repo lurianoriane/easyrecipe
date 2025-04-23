@@ -1,6 +1,7 @@
 plugins {
     id("config.android.application")
     id("config.android.application.compose")
+    id("config.android.hilt")
     kotlin("android")
 }
 
@@ -44,6 +45,7 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(project(":features:search"))
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

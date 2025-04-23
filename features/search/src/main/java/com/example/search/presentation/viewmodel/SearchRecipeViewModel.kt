@@ -3,6 +3,7 @@ package com.example.search.presentation.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.search.domain.usecase.SearchRecipeUseCase
+import com.example.search.presentation.intent.SearchRecipeIntent
 import com.example.search.presentation.state.SearchRecipeUiState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -22,6 +23,13 @@ class SearchRecipeViewModel @Inject constructor(
     private val _uiState = MutableStateFlow(SearchRecipeUiState().initialState())
     val uiState: StateFlow<SearchRecipeUiState> = _uiState
 
+    fun handleIntent(intent: SearchRecipeIntent) {
+        when (intent) {
+            is SearchRecipeIntent.OnSearchRecipe -> {
+                getRecipes(intent.nameRecipe)
+            }
+        }
+    }
     private fun getRecipes(nameRecipe: String) {
         viewModelScope.launch {
             useCase.searchRecipes(nameRecipe).onStart {
