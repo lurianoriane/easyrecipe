@@ -23,6 +23,8 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
@@ -69,7 +71,9 @@ fun RectangleCard(recipeName: String, imageRecipe: String) {
                         modifier = Modifier,
                         style = TextStyle(fontWeight = FontWeight.Bold),
                         fontSize = 16.sp,
-                        textAlign = TextAlign.Start
+                        textAlign = TextAlign.Start,
+                        maxLines = 4,
+                        overflow = TextOverflow.Ellipsis,
                     )
                     Spacer(modifier = Modifier.height(4.dp))
                 }
@@ -87,4 +91,10 @@ fun RectangleCard(recipeName: String, imageRecipe: String) {
             )
         }
     }
+}
+
+@Preview
+@Composable
+private fun RectangleCardPreview() {
+    RectangleCard(recipeName = "Hamburguer", imageRecipe = "https://example.com/image.jpg")
 }
