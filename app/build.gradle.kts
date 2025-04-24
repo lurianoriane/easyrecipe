@@ -6,10 +6,10 @@ plugins {
 }
 
 android {
-    namespace = "com.example.easyrecipe"
+    namespace = "com.lurian.easyrecipe"
 
     defaultConfig {
-        applicationId = "com.example.easyrecipe"
+        applicationId = "com.lurian.easyrecipe"
         versionCode = 1
         versionName = "1.0"
 

@@ -7,7 +7,7 @@ plugins {
 }
 
 android {
-    namespace = "com.lurian.search"
+    namespace = "com.lurian.features.search"
     compileSdk = 34
 
     defaultConfig {
