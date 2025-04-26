@@ -1,14 +1,15 @@
 plugins {
     id("config.android.application")
     id("config.android.application.compose")
+    id("config.android.hilt")
     kotlin("android")
 }
 
 android {
-    namespace = "com.example.easyrecipe"
+    namespace = "com.lurian.easyrecipe"
 
     defaultConfig {
-        applicationId = "com.example.easyrecipe"
+        applicationId = "com.lurian.easyrecipe"
         versionCode = 1
         versionName = "1.0"
 
@@ -44,6 +45,7 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(project(":features:search"))
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

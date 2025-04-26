@@ -5,10 +5,10 @@ plugins {
 }
 
 android {
-    namespace = "com.example.design_system"
+    namespace = "com.lurian.design_system"
 
     defaultConfig {
-        applicationId = "com.example.design_system"
+        applicationId = "com.lurian.design_system"
         versionCode = 1
         versionName = "1.0"
 
