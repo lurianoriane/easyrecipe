@@ -2,8 +2,9 @@ package com.lurian.easyrecipe.presentation
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -27,50 +28,52 @@ import androidx.compose.ui.unit.sp
 import com.lurian.easyrecipe.R
 
 class LoginScreen {
-    /* todo o que dá pra fazer com a imagem com peso maior que o restante?
-                  uma alternativa seria deixar o conteudo por cima da imagem, dá pra fazer com uma box?*/
     @Composable
     fun LoginScreenSuccess() {
         Column(
             modifier = Modifier
                 .fillMaxSize()
                 .background(colorResource(id = R.color.blue_water)),
-            verticalArrangement = Arrangement.Bottom,
-            horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            TextButton(
-                modifier = Modifier
-                    .align(Alignment.End)
-                    .padding(24.dp),
-                onClick = { },
-                content = {
-                    Text(
-                        text = "Pular",
-                        color = Color.White,
-                        fontSize = 16.sp,
-                        fontWeight = FontWeight.Bold,
-                        textAlign = TextAlign.Center,
-                    )
-                }
-            )
-
-            Image(
-                painter = painterResource(id = R.drawable.background_illustration),
-                contentDescription = "illustration of food",
-                contentScale = ContentScale.Inside,
-                alignment = Alignment.TopCenter
-            )
-            Text(
-                text = "Te ajudo a achar receitas fáceis e rápidas",
-                color = Color.White,
-                fontSize = 28.sp,
-                fontWeight = FontWeight.Bold,
-                textAlign = TextAlign.Center,
+            Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(bottom = 24.dp, start = 24.dp, end = 24.dp)
-            )
-
+                    .aspectRatio(0.6f)
+            ) {
+                Image(
+                    painter = painterResource(id = R.drawable.login_background),
+                    contentDescription = "illustration of food",
+                    contentScale = ContentScale.FillHeight,
+                    alignment = Alignment.TopCenter,
+                    modifier = Modifier.fillMaxSize()
+                )
+                TextButton(
+                    modifier = Modifier
+                        .padding(24.dp)
+                        .align(Alignment.TopEnd),
+                    onClick = { },
+                    content = {
+                        Text(
+                            text = "Later",
+                            color = Color.White,
+                            fontSize = 16.sp,
+                            fontWeight = FontWeight.Bold,
+                            textAlign = TextAlign.Center,
+                        )
+                    }
+                )
+                Text(
+                    text = "Help your path to health goals with happiness",
+                    color = Color.White,
+                    fontSize = 28.sp,
+                    fontWeight = FontWeight.Bold,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .align(Alignment.BottomCenter)
+                        .padding(start = 24.dp, end = 24.dp, bottom = 36.dp)
+                )
+            }
             Button(
                 modifier = Modifier
                     .padding(bottom = 24.dp, start = 24.dp, end = 24.dp)
@@ -82,7 +85,7 @@ class LoginScreen {
                 onClick = { },
             ) {
                 Text(
-                    text = "Entrar",
+                    text = "Login",
                     color = Color.White,
                     fontSize = 16.sp,
                     fontWeight = FontWeight.Bold,
@@ -92,15 +95,17 @@ class LoginScreen {
             }
             TextButton(modifier = Modifier.fillMaxWidth(), onClick = { }, content = {
                 Text(
-                    text = "Crie uma nova conta",
+                    text = "Create New Account",
                     color = Color.White,
                     fontSize = 16.sp,
                     fontWeight = FontWeight.Bold,
                     textAlign = TextAlign.Center,
                 )
-            }
-            )
+            })
+
         }
+
+
     }
 
     @Preview(showSystemUi = true)
