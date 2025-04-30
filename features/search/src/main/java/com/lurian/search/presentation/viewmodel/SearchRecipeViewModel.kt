@@ -30,6 +30,7 @@ class SearchRecipeViewModel @Inject constructor(
             }
         }
     }
+
     private fun getRecipes(nameRecipe: String) {
         viewModelScope.launch {
             useCase.searchRecipes(nameRecipe).onStart {
@@ -37,10 +38,8 @@ class SearchRecipeViewModel @Inject constructor(
             }.flowOn(Dispatchers.IO).catch {
                 _uiState.update { it.copy(isError = true, isLoading = false) }
             }.collect { recipes ->
-                _uiState.update { it.copy(searchRecipe = recipes) }
+                _uiState.update { it.copy(searchRecipe = recipes, isLoading = false) }
             }
         }
     }
 }
-
-// todo bottom nav fazer

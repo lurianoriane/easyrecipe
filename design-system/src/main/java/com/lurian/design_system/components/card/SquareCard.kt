@@ -1,4 +1,4 @@
-package com.lurian.design_system.components
+package com.lurian.design_system.components.card
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -35,7 +35,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
-import com.lurian.design_system.R
+import com.lurian.design_system.components.utils.DesignSystemDrawableRes
 
 
 @Composable
@@ -76,7 +76,7 @@ fun SquareCard(imageRecipe: String, recipeName: String) {
                     .align(Alignment.TopEnd)
             ) {
                 Image(
-                    painter = painterResource(R.drawable.favorite_icon),
+                    painter = painterResource(DesignSystemDrawableRes.favorite_icon),
                     contentDescription = "favorite button",
                 )
             }
@@ -96,10 +96,11 @@ fun SquareCard(imageRecipe: String, recipeName: String) {
                 verticalAlignment = Alignment.CenterVertically,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .align(Alignment.CenterHorizontally).background(Color.Cyan),
+                    .align(Alignment.CenterHorizontally)
+                    .background(Color.Cyan),
             ) {
                 Icon(
-                    imageVector = ImageVector.vectorResource(id = R.drawable.kcal_icon),
+                    imageVector = ImageVector.vectorResource(id = DesignSystemDrawableRes.kcal_icon),
                     modifier = Modifier.size(16.dp),
                     contentDescription = "Calories icon",
                     tint = Color.Gray
@@ -110,7 +111,7 @@ fun SquareCard(imageRecipe: String, recipeName: String) {
                 )
                 Spacer(modifier = Modifier.width(8.dp))
                 Icon(
-                    imageVector = ImageVector.vectorResource(id = R.drawable.clock_icon),
+                    imageVector = ImageVector.vectorResource(id = DesignSystemDrawableRes.clock_icon),
                     contentDescription = "Time icon",
                     modifier = Modifier.size(16.dp),
                     tint = Color.Gray

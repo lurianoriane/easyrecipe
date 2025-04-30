@@ -1,4 +1,4 @@
-package com.lurian.design_system.components
+package com.lurian.design_system.components.card
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

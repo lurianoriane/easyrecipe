@@ -2,13 +2,16 @@ package com.lurian.search.presentation.view
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.rounded.ArrowBack
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -23,6 +26,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -34,18 +38,20 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.lurian.design_system.components.RectangleCard
+import com.lurian.design_system.components.card.RectangleCard
 import com.lurian.search.domain.model.Recipe
 import com.lurian.search.presentation.intent.SearchRecipeIntent
 import com.lurian.search.presentation.state.SearchRecipeUiState
 import com.lurian.search.presentation.viewmodel.SearchRecipeViewModel
 import com.lurian.features.search.R
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 @Composable
 private fun SearchScreen(state: SearchRecipeUiState, onIntent: (SearchRecipeIntent) -> Unit) {
     when {
         state.isError -> {}
-        state.isLoading -> {}
         else -> {
             SearchScreenSuccess(state, onIntent)
         }
@@ -89,30 +95,56 @@ private fun SearchScreenSuccess(
     }, content = {
         Column(modifier = Modifier.padding(it)) {
             SearchComponent(onIntent)
-            SearchResultList(state.searchRecipe)
+            SearchResultList(state.searchRecipe, state.isLoading)
         }
     })
 }
 
+private fun CoroutineScope.debounce(
+    delayMillis: Long = 500L,
+    action: () -> Unit
+) {
+    launch {
+        delay(delayMillis)
+        action()
+    }
+}
+
 @Composable
-private fun SearchResultList(recipeList: List<Recipe>) {
-    LazyColumn {
-        items(recipeList) { recipe ->
-            RectangleCard(
-                recipeName = recipe.name,
-                imageRecipe = recipe.image
-            )
+private fun SearchResultList(recipeList: List<Recipe>, isLoading: Boolean) {
+    if (isLoading) {
+        LoadingScreen()
+    } else {
+        LazyColumn {
+            items(recipeList) { recipe ->
+                RectangleCard(
+                    recipeName = recipe.name,
+                    imageRecipe = recipe.image
+                )
+            }
         }
     }
 }
 
 @Composable
-fun SearchComponent(
+private fun LoadingScreen(modifier: Modifier = Modifier) {
+    Column(
+        modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        CircularProgressIndicator()
+    }
+}
+
+@Composable
+private fun SearchComponent(
     onIntent: (SearchRecipeIntent) -> Unit
 ) {
     var valueOnTextField by remember {
         mutableStateOf("")
     }
+    val coroutineScope = rememberCoroutineScope()
     OutlinedTextField(
         modifier = Modifier
             .fillMaxWidth()
@@ -128,12 +160,14 @@ fun SearchComponent(
         singleLine = true,
         onValueChange = {
             valueOnTextField = it
-            onIntent(SearchRecipeIntent.OnSearchRecipe(it))
+            coroutineScope.debounce {
+                onIntent(SearchRecipeIntent.OnSearchRecipe(it))
+            }
         },
         label = { Text(text = stringResource(id = R.string.search_screen_label)) },
-//        leadingIcon = {
-//            Icon(imageVector = Icons.Default.Search, contentDescription = "Search")
-//        },
+        leadingIcon = {
+            Icon(imageVector = Icons.Default.Search, contentDescription = "Search")
+        },
     )
 }
 
