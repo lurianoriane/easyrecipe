@@ -6,3 +6,5 @@ import androidx.compose.runtime.Composable
 fun HomePageScreenSuccess() {
 
 }
+
+// todo criar um módulo de home e mover essa tela para lá
