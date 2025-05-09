@@ -17,10 +17,13 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
+import com.lurian.designsystem.R
 
 const val SHOULD_DISPLAY_BOTTOM_BAR = "should_display_bottom_bar"
 
@@ -83,5 +86,38 @@ private fun navigate(item: BottomNavItem, navController: NavController): (() -> 
 private fun NavController.getCurrentRoute(): String? {
     val navBackStackEntry by currentBackStackEntryAsState()
     return navBackStackEntry?.destination?.route
+}
 
+@Preview
+@Composable
+private fun BottomNavBarPrev() {
+    BottomNavBar(
+        navController = NavController(context = LocalContext.current),
+        items = listOf(
+            BottomNavItem(
+                title = "Home",
+                iconSelected = R.drawable.ic_menu_favorite_selected,
+                iconUnselected = R.drawable.ic_menu_home_unselected,
+                route = "home"
+            ),
+            BottomNavItem(
+                title = "Search",
+                iconSelected = R.drawable.ic_menu_search_selected,
+                iconUnselected = R.drawable.ic_menu_search_unselected,
+                route = "search"
+            ),
+            BottomNavItem(
+                title = "Profile",
+                iconSelected = R.drawable.ic_menu_profile_selected,
+                iconUnselected = R.drawable.ic_menu_profile_unselected,
+                route = "profile"
+            ),
+            BottomNavItem(
+                title = "Favorites",
+                iconSelected = R.drawable.ic_menu_favorite_selected,
+                iconUnselected = R.drawable.ic_menu_favorite_unselected,
+                route = "settings"
+            )
+        )
+    )
 }

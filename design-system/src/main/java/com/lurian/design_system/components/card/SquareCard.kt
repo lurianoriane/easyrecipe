@@ -76,7 +76,7 @@ fun SquareCard(imageRecipe: String, recipeName: String) {
                     .align(Alignment.TopEnd)
             ) {
                 Image(
-                    painter = painterResource(DesignSystemDrawableRes.favorite_icon),
+                    painter = painterResource(DesignSystemDrawableRes.ic_favorite_button_unselected),
                     contentDescription = "favorite button",
                 )
             }
@@ -100,7 +100,7 @@ fun SquareCard(imageRecipe: String, recipeName: String) {
                     .background(Color.Cyan),
             ) {
                 Icon(
-                    imageVector = ImageVector.vectorResource(id = DesignSystemDrawableRes.kcal_icon),
+                    imageVector = ImageVector.vectorResource(id = DesignSystemDrawableRes.ic_kcal),
                     modifier = Modifier.size(16.dp),
                     contentDescription = "Calories icon",
                     tint = Color.Gray
@@ -111,7 +111,7 @@ fun SquareCard(imageRecipe: String, recipeName: String) {
                 )
                 Spacer(modifier = Modifier.width(8.dp))
                 Icon(
-                    imageVector = ImageVector.vectorResource(id = DesignSystemDrawableRes.clock_icon),
+                    imageVector = ImageVector.vectorResource(id = DesignSystemDrawableRes.ic_clock),
                     contentDescription = "Time icon",
                     modifier = Modifier.size(16.dp),
                     tint = Color.Gray
