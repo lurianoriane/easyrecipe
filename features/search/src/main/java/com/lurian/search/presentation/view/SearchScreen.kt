@@ -10,17 +10,11 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
-import androidx.compose.material.icons.rounded.ArrowBack
 import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -36,14 +30,14 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.lurian.design_system.components.card.RectangleCard
+import com.lurian.design_system.components.chip.ChipList
+import com.lurian.features.search.R
 import com.lurian.search.domain.model.Recipe
 import com.lurian.search.presentation.intent.SearchRecipeIntent
 import com.lurian.search.presentation.state.SearchRecipeUiState
 import com.lurian.search.presentation.viewmodel.SearchRecipeViewModel
-import com.lurian.features.search.R
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -58,46 +52,30 @@ private fun SearchScreen(state: SearchRecipeUiState, onIntent: (SearchRecipeInte
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun SearchScreenSuccess(
     state: SearchRecipeUiState,
     onIntent: (SearchRecipeIntent) -> Unit
 ) {
-    Scaffold(topBar = {
-        TopAppBar(
-            navigationIcon = {
-                IconButton(onClick = { }) {
-                    Icon(
-                        // Icons.Rounded.ArrowBack, change icon
-                        Icons.Rounded.ArrowBack, contentDescription = ""
-                    )
-                }
-            }, title = {
-                Column(
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                    verticalArrangement = Arrangement.Center
-                ) {
-                    Text(
-                        text = stringResource(id = R.string.search_screen_name),
-                        fontWeight = FontWeight.Bold,
-                        fontSize = 20.sp
-                    )
-                }
-            }, actions = {
 
-            },
-            colors = TopAppBarDefaults.topAppBarColors(
-                containerColor = Color.White,
-                navigationIconContentColor = Color.Gray
-            )
-        )
-    }, content = {
-        Column(modifier = Modifier.padding(it)) {
-            SearchComponent(onIntent)
-            SearchResultList(state.searchRecipe, state.isLoading)
+    Column(modifier = Modifier.padding(16.dp)) {
+        SearchComponent(onIntent)
+        ChipList(chipList = state.listMealType) { mealType ->
+            onClickMealType(mealType = mealType, onIntent = onIntent)
         }
-    })
+        SearchResultList(recipeList = state.listSearchRecipe, isLoading = state.isLoading)
+    }
+}
+
+private fun onClickMealType(
+    mealType: String,
+    onIntent: (SearchRecipeIntent) -> Unit
+) {
+    if (mealType.isBlank()) {
+        onIntent(SearchRecipeIntent.OnFilterClean)
+    } else {
+        onIntent(SearchRecipeIntent.OnFilterClick(mealType))
+    }
 }
 
 private fun CoroutineScope.debounce(

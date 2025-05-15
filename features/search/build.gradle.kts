@@ -27,4 +27,5 @@ dependencies {
 
     implementation(project(":network"))
     implementation(project(":design-system"))
+    implementation(project(":features:meal-type"))
 }

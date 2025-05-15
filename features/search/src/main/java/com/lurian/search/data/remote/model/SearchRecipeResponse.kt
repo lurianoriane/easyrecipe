@@ -12,6 +12,7 @@ data class SearchRecipeResponse(
 data class RecipeResponse(
     @SerialName("id") val id: Int,
     @SerialName("name") val name: String,
-    @SerialName("image") val image: String
+    @SerialName("image") val image: String,
+    @SerialName("mealType") val mealType: List<String>
 )
 

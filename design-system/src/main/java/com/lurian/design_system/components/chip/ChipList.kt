@@ -12,7 +12,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun ChipList(chipList: List<String>, modifier: Modifier = Modifier, onClick: (String) -> Unit) {
+fun ChipList(
+    chipList: List<String>,
+    modifier: Modifier = Modifier,
+    onClick: (String) -> Unit
+) {
     var selectedChipIndex by remember { mutableIntStateOf(-1) }
     LazyRow(modifier) {
         items(chipList.size) { index ->

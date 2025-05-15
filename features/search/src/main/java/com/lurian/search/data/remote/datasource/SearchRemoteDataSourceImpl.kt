@@ -11,15 +11,16 @@ class SearchRemoteDataSourceImpl @Inject constructor(
     private val searchApi: SearchApi
 ) : SearchRemoteDataSource {
     override suspend fun searchRecipes(nameRecipe: String): List<Recipe> {
-       return searchApi.searchRecipe(LIMIT, nameRecipe).toRecipeList()
+        return searchApi.searchRecipe(LIMIT, nameRecipe).toRecipeList()
     }
 
-    private fun SearchRecipeResponse.toRecipeList() : List<Recipe> {
+    private fun SearchRecipeResponse.toRecipeList(): List<Recipe> {
         return recipes.map {
             Recipe(
                 id = it.id.toString(),
                 name = it.name,
-                image = it.image
+                image = it.image,
+                mealType = it.mealType
             )
         }
     }

@@ -40,7 +40,7 @@ fun AppNavHost(
                 HomePageScreenSuccess()
             }
 
-            composable(route = AppNavDestinations.DETAILS_ROUTE) {
+            composable(route = AppNavDestinations.FAVORITE_ROUTE) {
                 HomePageScreenSuccess()
             }
         }
@@ -51,26 +51,26 @@ val bottomNavItems = listOf(
     BottomNavItem(
         title = "Home",
         route = AppNavDestinations.HOME_ROUTE,
-        iconSelected = DesignSystemDrawableRes.fire_icon,
-        iconUnselected = DesignSystemDrawableRes.fire_icon
+        iconSelected = DesignSystemDrawableRes.ic_menu_home_selected,
+        iconUnselected = DesignSystemDrawableRes.ic_menu_home_unselected
     ),
     BottomNavItem(
         title = "Search",
         route = AppNavDestinations.SEARCH_ROUTE,
-        iconSelected = DesignSystemDrawableRes.fire_icon,
-        iconUnselected = DesignSystemDrawableRes.fire_icon
+        iconSelected = DesignSystemDrawableRes.ic_menu_search_selected,
+        iconUnselected = DesignSystemDrawableRes.ic_menu_search_unselected
+    ),
+    BottomNavItem(
+        title = "Favorite",
+        route = AppNavDestinations.FAVORITE_ROUTE,
+        iconSelected = DesignSystemDrawableRes.ic_menu_favorite_selected,
+        iconUnselected = DesignSystemDrawableRes.ic_menu_favorite_unselected
     ),
     BottomNavItem(
         title = "Profile",
         route = AppNavDestinations.PROFILE_ROUTE,
-        iconSelected = DesignSystemDrawableRes.fire_icon,
-        iconUnselected = DesignSystemDrawableRes.fire_icon
-    ),
-    BottomNavItem(
-        title = "Details",
-        route = AppNavDestinations.DETAILS_ROUTE,
-        iconSelected = DesignSystemDrawableRes.fire_icon,
-        iconUnselected = DesignSystemDrawableRes.fire_icon
+        iconSelected = DesignSystemDrawableRes.ic_menu_profile_selected,
+        iconUnselected = DesignSystemDrawableRes.ic_menu_profile_unselected
     ),
 )
 
@@ -78,5 +78,5 @@ internal object AppNavDestinations {
     const val HOME_ROUTE = "home"
     const val SEARCH_ROUTE = "search"
     const val PROFILE_ROUTE = "profile"
-    const val DETAILS_ROUTE = "details"
+    const val FAVORITE_ROUTE = "favorites"
 }
