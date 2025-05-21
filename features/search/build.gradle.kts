@@ -10,7 +10,20 @@ android {
     compileSdk = 34
 
     defaultConfig {
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.lurian.android_testing.runner.ApplicationTestRunner"
+    }
+
+    testOptions {
+        unitTests {
+            isIncludeAndroidResources = true
+        }
+        animationsDisabled = true
+    }
+
+    packaging {
+        resources {
+            excludes += setOf("META-INF/DEPENDENCIES")
+        }
     }
 }
 
@@ -28,4 +41,6 @@ dependencies {
     implementation(project(":network"))
     implementation(project(":design-system"))
     implementation(project(":features:meal-type"))
+    androidTestImplementation(project(":android-testing"))
+    debugImplementation(libs.androidx.ui.test.manifest)
 }
