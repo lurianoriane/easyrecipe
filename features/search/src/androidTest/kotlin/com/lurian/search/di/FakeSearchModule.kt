@@ -1,4 +1,5 @@
-import com.lurian.search.di.SearchModule
+package com.lurian.search.di
+
 import com.lurian.search.domain.repository.SearchRepository
 import com.lurian.search.repository.FakeRepository
 import dagger.Module
