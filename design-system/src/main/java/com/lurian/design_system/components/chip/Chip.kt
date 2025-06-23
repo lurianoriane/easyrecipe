@@ -10,14 +10,17 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.lurian.designsystem.R
 
 @Composable
 fun Chip(text: String, isSelected: Boolean, modifier: Modifier = Modifier, onClick: () -> Unit) {
-    val backgroundColor = if (isSelected) Color.Cyan else Color.Gray
+    val backgroundColor =
+        if (isSelected) colorResource(R.color.cyan) else colorResource(R.color.light_gray)
     val textColor = if (isSelected) Color.White else Color.Black
     Surface(
         color = backgroundColor,
@@ -28,7 +31,13 @@ fun Chip(text: String, isSelected: Boolean, modifier: Modifier = Modifier, onCli
         onClick = onClick
     ) {
         Box(contentAlignment = Alignment.Center) {
-            Text(text = text, fontSize = 16.sp, color = textColor, textAlign = TextAlign.Center, maxLines = 2,  )
+            Text(
+                text = text,
+                fontSize = 16.sp,
+                color = textColor,
+                textAlign = TextAlign.Center,
+                maxLines = 2,
+            )
         }
     }
 }
@@ -36,5 +45,5 @@ fun Chip(text: String, isSelected: Boolean, modifier: Modifier = Modifier, onCli
 @Preview
 @Composable
 private fun ChipPreview() {
-    Chip(text = "Comida Mexicana", isSelected = false, modifier = Modifier, onClick = {})
+    Chip(text = "Comida Mexicana", isSelected = true, modifier = Modifier, onClick = {})
 }
