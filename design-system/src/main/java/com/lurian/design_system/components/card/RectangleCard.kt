@@ -23,6 +23,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
@@ -43,7 +44,8 @@ fun RectangleCard(recipeName: String, imageRecipe: String) {
         modifier = Modifier
             .padding(horizontal = 24.dp, vertical = 8.dp)
             .height(100.dp)
-            .fillMaxWidth(),
+            .fillMaxWidth()
+            .testTag("rectangle_card"),
         elevation = CardDefaults.cardElevation(defaultElevation = 8.dp),
         colors = CardDefaults.cardColors(containerColor = Color.White),
         onClick = {}
@@ -54,7 +56,6 @@ fun RectangleCard(recipeName: String, imageRecipe: String) {
                 .padding(8.dp),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween
-
         ) {
             Row(modifier = Modifier.weight(1f), verticalAlignment = Alignment.CenterVertically) {
                 AsyncImage(

@@ -10,17 +10,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.lurian.designsystem.R
 
 @Composable
 fun Chip(text: String, isSelected: Boolean, modifier: Modifier = Modifier, onClick: () -> Unit) {
     val backgroundColor =
-        if (isSelected) colorResource(R.color.cyan) else colorResource(R.color.light_gray)
+        if (isSelected) Color.Black else Color.LightGray
     val textColor = if (isSelected) Color.White else Color.Black
     Surface(
         color = backgroundColor,

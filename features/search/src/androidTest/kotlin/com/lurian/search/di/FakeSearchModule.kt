@@ -1,7 +1,6 @@
 package com.lurian.search.di
 
 import com.lurian.search.domain.repository.SearchRepository
-import com.lurian.search.repository.FakeRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.components.SingletonComponent
@@ -18,8 +17,7 @@ object FakeSearchModule {
 
     @Singleton
     @Provides
-    fun bindSearchRepository(fakeRepository: FakeRepository): SearchRepository {
+    fun bindSearchRepository(): SearchRepository {
         return mockk<SearchRepository>()
     }
 }
-
