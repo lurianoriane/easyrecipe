@@ -43,4 +43,5 @@ dependencies {
     implementation(project(":features:meal-type"))
     androidTestImplementation(project(":android-testing"))
     debugImplementation(libs.androidx.ui.test.manifest)
+    testImplementation(project(":testing"))
 }
