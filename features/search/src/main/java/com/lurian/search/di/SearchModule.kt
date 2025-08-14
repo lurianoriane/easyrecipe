@@ -9,25 +9,23 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ViewModelComponent
-import retrofit2.Retrofit
+import io.ktor.client.HttpClient
 
 @InstallIn(ViewModelComponent::class)
 @Module
 class SearchModule {
     @Provides
-    fun provideSearchApi(retrofit: Retrofit) : SearchApi {
-        return retrofit.create(SearchApi::class.java)
+    fun provideSearchApi(httpClient: HttpClient): SearchApi {
+        return SearchApi(httpClient)
     }
 
     @Provides
-    fun provideSearchDataSource(searchApi: SearchApi) : SearchRemoteDataSource {
+    fun provideSearchDataSource(searchApi: SearchApi): SearchRemoteDataSource {
         return SearchRemoteDataSourceImpl(searchApi)
     }
 
     @Provides
-    fun provideSearchRepository(dataSource: SearchRemoteDataSource) : SearchRepository {
+    fun provideSearchRepository(dataSource: SearchRemoteDataSource): SearchRepository {
         return SearchRepositoryImpl(dataSource)
     }
-
-
 }

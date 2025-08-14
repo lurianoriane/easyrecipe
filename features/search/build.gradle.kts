@@ -37,6 +37,7 @@ dependencies {
     implementation(libs.logging.interceptor)
     implementation(libs.coil)
     implementation(libs.coil.netwok)
+    implementation(libs.ktor.client.okhttp)
 
     implementation(project(":network"))
     implementation(project(":design-system"))

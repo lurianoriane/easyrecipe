@@ -32,4 +32,6 @@ dependencies {
     implementation(libs.retrofit.converter.kotlin.serialization)
     implementation(libs.logging.interceptor)//okhttp
     implementation(libs.serialization)
+    implementation(libs.bundles.ktor.default)
+    implementation(libs.ktor.client.okhttp)
 }

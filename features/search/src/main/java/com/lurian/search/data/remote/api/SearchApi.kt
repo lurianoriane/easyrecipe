@@ -1,13 +1,19 @@
 package com.lurian.search.data.remote.api
 
 import com.lurian.search.data.remote.model.SearchRecipeResponse
-import retrofit2.http.GET
-import retrofit2.http.Query
+import io.ktor.client.HttpClient
+import io.ktor.client.call.body
+import io.ktor.client.request.get
+import io.ktor.client.request.parameter
 
-interface SearchApi {
-    @GET("search")
-    suspend fun searchRecipe(
-        @Query("limit") limit: Int,
-        @Query("q") query: String
-    ) : SearchRecipeResponse
+class SearchApi(private val httpClient: HttpClient) {
+
+    suspend fun searchRecipe(limit: Int, query: String): SearchRecipeResponse {
+        return httpClient.get(
+            "search"
+        ) {
+            parameter("limit", limit)
+            parameter("query", query)
+        }.body()
+    }
 }
