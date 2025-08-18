@@ -41,6 +41,12 @@ androidxTestRunner = "1.7.0"
 androidxTestRules = "1.7.0"
 composeVersion = "1.8.3"
 ktor = "3.2.3"
+androidGradlePlugin = "8.12.0"
+kotlinStdlib = "2.2.0"
+kotlinTest = "2.2.0"
+core = "1.7.0"
+koin = "4.1.0"
+koin-compose = "4.1.0"
 
 [libraries]
 build-logic-android-gradlePlugin = { module = "com.android.tools.build:gradle", version.ref = "agp" }
@@ -103,6 +109,16 @@ ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx
 ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor" }
 ktor-client-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "ktor" }
 ktor-client-mock = { module = "io.ktor:ktor-client-mock", version.ref = "ktor" }
+kotlin-stdlib = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib", version.ref = "kotlinStdlib" }
+kotlin-test = { group = "org.jetbrains.kotlin", name = "kotlin-test", version.ref = "kotlinTest" }
+androidx-core = { group = "androidx.test", name = "core", version.ref = "core" }
+koin-core = { group = "io.insert-koin", name = "koin-core", version.ref = "koin" }
+koin-android = { group = "io.insert-koin", name = "koin-android", version.ref = "koin" }
+koin-core-annotations = { group = "io.insert-koin", name = "koin-core-annotations", version.ref = "koin" }
+koin-android-compat = { group = "io.insert-koin", name = "koin-android-compat", version.ref = "koin" }
+koin-androidx-compose = { group = "io.insert-koin", name = "koin-androidx-compose", version.ref = "koin-compose" }
+koin-compose = { group = "io.insert-koin", name = "koin-compose", version.ref = "koin-compose" }
+koin-compose-viewmodel = { group = "io.insert-koin", name = "koin-compose-viewmodel", version.ref = "koin-compose" }
 
 [plugins]
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
@@ -111,6 +127,9 @@ jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "k
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
 room = { id = "androidx.room", version.ref = "room" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+android-kotlin-multiplatform-library = { id = "com.android.kotlin.multiplatform.library", version.ref = "androidGradlePlugin" }
+android-lint = { id = "com.android.lint", version.ref = "agp" }
 
 [bundles]
 coil-default = ["coil", "coil-netwok"]
