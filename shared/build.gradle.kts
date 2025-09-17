@@ -12,6 +12,7 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             implementation(project(":features:meal-type"))
+            implementation(project(":network"))
             implementation(libs.koin.core)
 
         }

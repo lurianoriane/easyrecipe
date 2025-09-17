@@ -30,7 +30,6 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
 import com.lurian.design_system.components.card.RectangleCard
 import com.lurian.design_system.components.chip.ChipList
 import com.lurian.features.search.R
@@ -41,6 +40,7 @@ import com.lurian.search.presentation.viewmodel.SearchRecipeViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
 private fun SearchScreen(state: SearchRecipeUiState, onIntent: (SearchRecipeIntent) -> Unit) {
@@ -150,7 +150,7 @@ private fun SearchComponent(
 }
 
 @Composable
-fun SearchRoute(viewModel: SearchRecipeViewModel = hiltViewModel()) {
+fun SearchRoute(viewModel: SearchRecipeViewModel = koinViewModel()) {
     val state by viewModel.uiState.collectAsState()
     SearchScreen(
         state = state,

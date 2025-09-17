@@ -1,5 +1,6 @@
 package com.lurian.search.presentation.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.lurian.meal_type.domain.usecase.GetMealTypesUseCase
@@ -7,7 +8,6 @@ import com.lurian.search.domain.model.Recipe
 import com.lurian.search.domain.usecase.SearchRecipeUseCase
 import com.lurian.search.presentation.intent.SearchRecipeIntent
 import com.lurian.search.presentation.state.SearchRecipeUiState
-import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -16,10 +16,8 @@ import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
-@HiltViewModel
-class SearchRecipeViewModel @Inject constructor(
+class SearchRecipeViewModel(
     private val useCase: SearchRecipeUseCase,
     private val mealTypeUseCase: GetMealTypesUseCase
 ) : ViewModel() {
@@ -59,6 +57,7 @@ class SearchRecipeViewModel @Inject constructor(
                 _uiState.update { it.copy(isLoading = true, isError = false) }
             }.catch {
                 _uiState.update { it.copy(isError = true, isLoading = false) }
+                Log.e("erro getrecipes", "${it.message}", it)
             }.collect { recipes ->
                 _uiState.update {
                     it.copy(listSearchRecipe = recipes, isLoading = false)

@@ -1,17 +1,12 @@
 plugins {
     id("config.android.library")
     id("config.android.library.compose")
-    id("config.android.hilt")
     kotlin("plugin.serialization")
 }
 
 android {
     namespace = "com.lurian.features.search"
     compileSdk = 34
-
-    defaultConfig {
-        testInstrumentationRunner = "com.lurian.android_testing.runner.ApplicationTestRunner"
-    }
 
     testOptions {
         unitTests {
@@ -28,7 +23,6 @@ android {
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.ui.graphics)
@@ -38,6 +32,9 @@ dependencies {
     implementation(libs.coil)
     implementation(libs.coil.netwok)
     implementation(libs.ktor.client.okhttp)
+    implementation(libs.koin.core)
+    implementation(libs.koin.android)
+    implementation(libs.koin.compose.viewmodel)
 
     implementation(project(":network"))
     implementation(project(":design-system"))

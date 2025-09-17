@@ -3,11 +3,10 @@ package com.lurian.search.data.remote.datasource
 import com.lurian.search.data.remote.api.SearchApi
 import com.lurian.search.data.remote.model.SearchRecipeResponse
 import com.lurian.search.domain.model.Recipe
-import javax.inject.Inject
 
 private const val LIMIT = 0
 
-class SearchRemoteDataSourceImpl @Inject constructor(
+class SearchRemoteDataSourceImpl(
     private val searchApi: SearchApi
 ) : SearchRemoteDataSource {
     override suspend fun searchRecipes(nameRecipe: String): List<Recipe> {

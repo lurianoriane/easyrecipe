@@ -12,11 +12,8 @@ import com.lurian.design_system.components.bottomnavbar.BottomNavBar
 import com.lurian.easyrecipe.navigation.AppNavHost
 import com.lurian.easyrecipe.navigation.bottomNavItems
 import com.lurian.easyrecipe.ui.theme.EasyRecipeTheme
-import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
-@AndroidEntryPoint
-class MainActivity @Inject constructor() : ComponentActivity() {
+class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()

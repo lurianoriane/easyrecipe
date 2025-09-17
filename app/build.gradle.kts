@@ -1,7 +1,6 @@
 plugins {
     id("config.android.application")
     id("config.android.application.compose")
-    id("config.android.hilt")
     kotlin("android")
 }
 
@@ -32,6 +31,16 @@ android {
 
     buildFeatures {
         compose = true
+        buildConfig = true
+    }
+
+    buildTypes {
+        release {
+            buildConfigField("String", "BASE_URL", "\"https://dummyjson.com/recipes/\"")
+        }
+        debug {
+            buildConfigField("String", "BASE_URL", "\"https://dummyjson.com/recipes/\"")
+        }
     }
 }
 

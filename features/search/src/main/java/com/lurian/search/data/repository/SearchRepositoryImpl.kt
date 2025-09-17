@@ -5,9 +5,8 @@ import com.lurian.search.domain.model.Recipe
 import com.lurian.search.domain.repository.SearchRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
-import javax.inject.Inject
 
-class SearchRepositoryImpl @Inject constructor(
+class SearchRepositoryImpl(
     private val dataSource: SearchRemoteDataSource
 ) : SearchRepository {
     override fun searchRecipes(nameRecipe: String): Flow<List<Recipe>> {

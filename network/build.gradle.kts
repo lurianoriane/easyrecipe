@@ -1,37 +1,21 @@
 plugins {
-    id("config.android.library")
-    id("config.android.hilt")
+    alias(libs.plugins.kotlin.multiplatform)
+    alias(libs.plugins.android.kotlin.multiplatform.library)
     kotlin("plugin.serialization")
 }
 
-android {
-    namespace = "com.lurian.network"
-    compileSdk = 34
-
-    defaultConfig {
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+kotlin {
+    androidLibrary {
+        namespace = "com.lurian.network"
+        compileSdk = 36
+        minSdk = 24
     }
-
-    buildFeatures {
-        buildConfig = true
-    }
-
-    buildTypes {
-        release {
-            buildConfigField("String", "BASE_URL", "\"https://dummyjson.com/recipes/\"")
-        }
-        debug {
-            buildConfigField("String", "BASE_URL", "\"https://dummyjson.com/recipes/\"")
+    sourceSets {
+        commonMain.dependencies {
+            implementation(libs.serialization)
+            implementation(libs.bundles.ktor.default)
+            implementation(libs.ktor.client.okhttp)
+            implementation(libs.koin.core)
         }
     }
-
-}
-
-dependencies {
-    implementation(libs.retrofit.core)
-    implementation(libs.retrofit.converter.kotlin.serialization)
-    implementation(libs.logging.interceptor)//okhttp
-    implementation(libs.serialization)
-    implementation(libs.bundles.ktor.default)
-    implementation(libs.ktor.client.okhttp)
 }

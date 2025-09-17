@@ -5,27 +5,17 @@ import com.lurian.search.data.remote.datasource.SearchRemoteDataSource
 import com.lurian.search.data.remote.datasource.SearchRemoteDataSourceImpl
 import com.lurian.search.data.repository.SearchRepositoryImpl
 import com.lurian.search.domain.repository.SearchRepository
-import dagger.Module
-import dagger.Provides
-import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ViewModelComponent
+import com.lurian.search.domain.usecase.SearchRecipeUseCase
+import com.lurian.search.presentation.viewmodel.SearchRecipeViewModel
 import io.ktor.client.HttpClient
+import org.koin.core.module.dsl.viewModel
+import org.koin.dsl.module
 
-@InstallIn(ViewModelComponent::class)
-@Module
-class SearchModule {
-    @Provides
-    fun provideSearchApi(httpClient: HttpClient): SearchApi {
-        return SearchApi(httpClient)
-    }
-
-    @Provides
-    fun provideSearchDataSource(searchApi: SearchApi): SearchRemoteDataSource {
-        return SearchRemoteDataSourceImpl(searchApi)
-    }
-
-    @Provides
-    fun provideSearchRepository(dataSource: SearchRemoteDataSource): SearchRepository {
-        return SearchRepositoryImpl(dataSource)
-    }
+val searchModule = module {
+    single { HttpClient() }
+    single { SearchApi(get()) }
+    factory<SearchRemoteDataSource> { SearchRemoteDataSourceImpl(get()) }
+    factory<SearchRepository> { SearchRepositoryImpl(get()) }
+    factory { SearchRecipeUseCase(get()) }
+    viewModel { SearchRecipeViewModel(get(), get()) }
 }

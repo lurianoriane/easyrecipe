@@ -41,10 +41,6 @@ gradlePlugin {
             id = "config.android.library.compose"
             implementationClass = "AndroidLibraryComposeConventionPlugin"
         }
-        register("androidHilt") {
-            id = "config.android.hilt"
-            implementationClass = "AndroidHiltConventionPlugin"
-        }
         register("androidRoom") {
             id = "config.android.room"
             implementationClass = "AndroidRoomConventionPlugin"
