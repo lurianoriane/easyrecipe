@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "com.lurian.features.search"
-    compileSdk = 34
+    compileSdk = 35
 
     testOptions {
         unitTests {
@@ -17,9 +17,10 @@ android {
 
     packaging {
         resources {
-            excludes += setOf("META-INF/DEPENDENCIES")
+            excludes += setOf("META-INF/DEPENDENCIES", "META-INF/LICENSE.md", "META-INF/LICENSE-notice.md")
         }
     }
+
 }
 
 dependencies {

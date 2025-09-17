@@ -13,4 +13,5 @@ dependencies {
     api(libs.androidx.test.rules)
     api(libs.junit.compose.ui.test)
     api(libs.mockk.android)
+    api(libs.koin.test)
 }
