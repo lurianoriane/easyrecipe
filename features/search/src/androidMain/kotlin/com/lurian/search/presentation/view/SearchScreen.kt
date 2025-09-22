@@ -32,7 +32,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.lurian.design_system.components.card.RectangleCard
 import com.lurian.design_system.components.chip.ChipList
-import com.lurian.features.search.R
 import com.lurian.search.domain.model.Recipe
 import com.lurian.search.presentation.intent.SearchRecipeIntent
 import com.lurian.search.presentation.state.SearchRecipeUiState
@@ -142,7 +141,7 @@ private fun SearchComponent(
                 onIntent(SearchRecipeIntent.OnSearchRecipe(it))
             }
         },
-        label = { Text(text = stringResource(id = R.string.search_screen_label)) },
+        label = { Text(text = "Pesquise sua receita aqui") },
         leadingIcon = {
             Icon(imageVector = Icons.Default.Search, contentDescription = "Search")
         },
