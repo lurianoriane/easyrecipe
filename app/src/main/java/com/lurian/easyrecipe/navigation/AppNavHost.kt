@@ -10,8 +10,16 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.lurian.design_system.components.bottomnavbar.BottomNavItem
 import com.lurian.design_system.components.utils.DesignSystemDrawableRes
+import com.lurian.designsystem.generated.resources.ic_menu_favorite_selected
+import com.lurian.designsystem.generated.resources.ic_menu_favorite_unselected
+import com.lurian.designsystem.generated.resources.ic_menu_home_selected
+import com.lurian.designsystem.generated.resources.ic_menu_home_unselected
+import com.lurian.designsystem.generated.resources.ic_menu_profile_selected
+import com.lurian.designsystem.generated.resources.ic_menu_profile_unselected
+import com.lurian.designsystem.generated.resources.ic_menu_search_selected
+import com.lurian.designsystem.generated.resources.ic_menu_search_unselected
 import com.lurian.easyrecipe.presentation.HomePageScreenSuccess
-import com.lurian.search.presentation.view.SearchRoute
+import presentation.view.SearchRoute
 
 @OptIn(ExperimentalSharedTransitionApi::class)
 @Composable

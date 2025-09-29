@@ -13,11 +13,9 @@ kotlin {
         commonMain.dependencies {
             implementation(project(":features:meal-type"))
             implementation(project(":network"))
+            implementation(project(":features:search"))
             implementation(libs.koin.core)
 
-        }
-        androidMain.dependencies {
-            implementation(project(":features:search"))
         }
     }
 }

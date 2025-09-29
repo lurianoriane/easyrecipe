@@ -1,26 +1,51 @@
 plugins {
-    id("config.android.library")
-    id("config.android.library.compose")
+    alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.compose.multiplatform)
+    alias(libs.plugins.kotlin.multiplatform)
+    alias(libs.plugins.android.kotlin.multiplatform.library)
 }
 
-android {
-    namespace = "com.lurian.designsystem"
-    compileSdk = 34
+kotlin {
+    androidLibrary {
+        namespace = "com.lurian.designsystem"
+        compileSdk = 34
 
-    defaultConfig {
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        experimentalProperties["android.experimental.kmp.enableAndroidResources"] = true
+
+    }
+
+    sourceSets{
+        commonMain.dependencies {
+            implementation(compose.runtime)
+            implementation(compose.foundation)
+            implementation(compose.material)
+            implementation(compose.material3)
+            implementation(compose.ui)
+            api(compose.components.resources)
+            implementation(compose.components.uiToolingPreview)
+            implementation(libs.androidx.navigation.compose)
+        }
+
+        androidMain.dependencies {
+            implementation(libs.androidx.core.ktx)
+            implementation(libs.coil)
+            implementation(libs.coil.netwok)
+            implementation(libs.androidx.lifecycle.runtime.ktx)
+            implementation(libs.androidx.ui.graphics)
+            implementation(compose.preview)
+        }
     }
 }
 
-dependencies {
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.material)
-    implementation(libs.androidx.material3.android)
-    implementation(libs.bundles.coil.default)
-    implementation(libs.androidx.palette.ktx)
-    implementation(libs.androidx.ui.graphics.android)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
+compose.resources{
+    packageOfResClass = "com.lurian.designsystem.generated.resources"
+    publicResClass = true
 }
+
+//dependencies {
+//    implementation(libs.androidx.appcompat)
+//    implementation(libs.androidx.palette.ktx)
+//    testImplementation(libs.junit)
+//    androidTestImplementation(libs.androidx.junit)
+//    androidTestImplementation(libs.androidx.espresso.core)
+//}
