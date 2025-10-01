@@ -21,6 +21,15 @@ kotlin {
             }
         }
     }
+    jvm {
+        compilations.configureEach {
+            compileTaskProvider.configure {
+                compilerOptions {
+                    jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_21)
+                }
+            }
+        }
+    }
 
     sourceSets {
         commonMain.dependencies {
@@ -28,8 +37,12 @@ kotlin {
             implementation(libs.ktor.client.okhttp)
             implementation(libs.koin.core)
             implementation(libs.koin.compose.viewmodel)
+            implementation(compose.materialIconsExtended)
             implementation(project(":network"))
             implementation(project(":features:meal-type"))
+            implementation(project(":design-system"))
+            implementation(libs.coil)
+            implementation(libs.coil.netwok)
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material)
@@ -43,11 +56,7 @@ kotlin {
             implementation(libs.androidx.lifecycle.runtime.ktx)
             implementation(libs.androidx.ui.graphics)
             implementation(libs.logging.interceptor)
-            implementation(libs.coil)
-            implementation(libs.coil.netwok)
             implementation(libs.koin.android)
-            implementation(compose.preview)
-            implementation(project(":design-system"))
         }
         androidUnitTest.dependencies {
             implementation(libs.androidx.ui.test.manifest)

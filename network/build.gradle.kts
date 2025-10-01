@@ -10,6 +10,15 @@ kotlin {
         compileSdk = 36
         minSdk = 24
     }
+    jvm {
+        compilations.configureEach {
+            compileTaskProvider.configure {
+                compilerOptions {
+                    jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_21)
+                }
+            }
+        }
+    }
     sourceSets {
         commonMain.dependencies {
             implementation(libs.serialization)

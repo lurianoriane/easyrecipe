@@ -38,7 +38,7 @@ compose.desktop {
             packageVersion = "1.0.0"
 
             macOS {
-                bundleID = "com.lurian.desktop.MainKt"
+                bundleID = "com.lurian.desktop"
             }
         }
     }

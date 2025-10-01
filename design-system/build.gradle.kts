@@ -14,13 +14,25 @@ kotlin {
 
     }
 
-    sourceSets{
+    jvm {
+        compilations.configureEach {
+            compileTaskProvider.configure {
+                compilerOptions {
+                    jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_21)
+                }
+            }
+        }
+    }
+
+    sourceSets {
         commonMain.dependencies {
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material)
             implementation(compose.material3)
             implementation(compose.ui)
+            implementation(libs.coil)
+            implementation(libs.coil.netwok)
             api(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
             implementation(libs.androidx.navigation.compose)
@@ -28,8 +40,6 @@ kotlin {
 
         androidMain.dependencies {
             implementation(libs.androidx.core.ktx)
-            implementation(libs.coil)
-            implementation(libs.coil.netwok)
             implementation(libs.androidx.lifecycle.runtime.ktx)
             implementation(libs.androidx.ui.graphics)
             implementation(compose.preview)
@@ -37,7 +47,7 @@ kotlin {
     }
 }
 
-compose.resources{
+compose.resources {
     packageOfResClass = "com.lurian.designsystem.generated.resources"
     publicResClass = true
 }

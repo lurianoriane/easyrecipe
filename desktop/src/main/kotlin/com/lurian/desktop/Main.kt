@@ -1,5 +1,5 @@
 package com.lurian.desktop
 
-fun main(){
+fun main() {
     print("desktop")
 }

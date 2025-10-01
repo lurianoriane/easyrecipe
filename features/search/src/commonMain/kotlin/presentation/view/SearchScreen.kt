@@ -27,23 +27,23 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.lurian.design_system.components.card.RectangleCard
 import com.lurian.design_system.components.chip.ChipList
 import domain.model.Recipe
-import presentation.intent.SearchRecipeIntent
-import presentation.state.SearchRecipeUiState
-import presentation.viewmodel.SearchRecipeViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import org.jetbrains.compose.ui.tooling.preview.Preview
 import org.koin.compose.viewmodel.koinViewModel
+import presentation.intent.SearchRecipeIntent
+import presentation.state.SearchRecipeUiState
+import presentation.viewmodel.SearchRecipeViewModel
 
 @Composable
 private fun SearchScreen(state: SearchRecipeUiState, onIntent: (SearchRecipeIntent) -> Unit) {
     when {
-        state.isError -> {}
+        state.isError -> { }
         else -> {
             SearchScreenSuccess(state, onIntent)
         }
@@ -157,7 +157,7 @@ fun SearchRoute(viewModel: SearchRecipeViewModel = koinViewModel()) {
 }
 
 
-@Preview(showBackground = true)
+@Preview
 @Composable
 private fun SearchComponentPreview() {
     SearchComponent(onIntent = {})
