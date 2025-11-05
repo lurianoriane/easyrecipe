@@ -9,9 +9,9 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
 import com.lurian.design_system.components.bottomnavbar.BottomNavBar
-import com.lurian.easyrecipe.navigation.AppNavHost
-import com.lurian.easyrecipe.navigation.bottomNavItems
-import com.lurian.easyrecipe.ui.theme.EasyRecipeTheme
+import com.lurian.shared.navigation.AppNavHost
+import com.lurian.shared.navigation.bottomNavItems
+import com.lurian.design_system.components.theme.EasyRecipeTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

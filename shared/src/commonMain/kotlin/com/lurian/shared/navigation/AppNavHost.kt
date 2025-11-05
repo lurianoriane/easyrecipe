@@ -1,4 +1,4 @@
-package com.lurian.easyrecipe.navigation
+package com.lurian.shared.navigation
 
 import androidx.compose.animation.ExperimentalSharedTransitionApi
 import androidx.compose.animation.SharedTransitionLayout
@@ -18,7 +18,6 @@ import com.lurian.designsystem.generated.resources.ic_menu_profile_selected
 import com.lurian.designsystem.generated.resources.ic_menu_profile_unselected
 import com.lurian.designsystem.generated.resources.ic_menu_search_selected
 import com.lurian.designsystem.generated.resources.ic_menu_search_unselected
-import com.lurian.easyrecipe.presentation.HomePageScreenSuccess
 import presentation.view.SearchRoute
 
 @OptIn(ExperimentalSharedTransitionApi::class)
@@ -36,7 +35,7 @@ fun AppNavHost(
         ) {
 
             composable(route = AppNavDestinations.HOME_ROUTE) {
-                HomePageScreenSuccess()
+                SearchRoute()
             }
 
             composable(route = AppNavDestinations.SEARCH_ROUTE) {
@@ -44,11 +43,11 @@ fun AppNavHost(
             }
 
             composable(route = AppNavDestinations.PROFILE_ROUTE) {
-                HomePageScreenSuccess()
+                SearchRoute()
             }
 
             composable(route = AppNavDestinations.FAVORITE_ROUTE) {
-                HomePageScreenSuccess()
+                SearchRoute()
             }
         }
     }

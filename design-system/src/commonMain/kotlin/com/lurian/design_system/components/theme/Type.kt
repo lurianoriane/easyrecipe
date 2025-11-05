@@ -1,4 +1,4 @@
-package com.lurian.easyrecipe.ui.theme
+package com.lurian.design_system.components.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
