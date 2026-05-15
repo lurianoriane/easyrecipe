@@ -41,22 +41,27 @@ import presentation.state.SearchRecipeUiState
 import presentation.viewmodel.SearchRecipeViewModel
 
 @Composable
-private fun SearchScreen(state: SearchRecipeUiState, onIntent: (SearchRecipeIntent) -> Unit) {
+private fun SearchScreen(
+    modifier: Modifier = Modifier,
+    state: SearchRecipeUiState,
+    onIntent: (SearchRecipeIntent) -> Unit
+) {
     when {
         state.isError -> { }
         else -> {
-            SearchScreenSuccess(state, onIntent)
+            SearchScreenSuccess(modifier, state, onIntent)
         }
     }
 }
 
 @Composable
 private fun SearchScreenSuccess(
+    modifier: Modifier = Modifier,
     state: SearchRecipeUiState,
     onIntent: (SearchRecipeIntent) -> Unit
 ) {
 
-    Column(modifier = Modifier.padding(16.dp)) {
+    Column(modifier = modifier.padding(16.dp)) {
         SearchComponent(onIntent)
         ChipList(chipList = state.listMealType) { mealType ->
             onClickMealType(mealType = mealType, onIntent = onIntent)
@@ -148,9 +153,13 @@ private fun SearchComponent(
 }
 
 @Composable
-fun SearchRoute(viewModel: SearchRecipeViewModel = koinViewModel()) {
+fun SearchRoute(
+    modifier: Modifier = Modifier,
+    viewModel: SearchRecipeViewModel = koinViewModel()
+) {
     val state by viewModel.uiState.collectAsState()
     SearchScreen(
+        modifier = modifier,
         state = state,
         onIntent = viewModel::handleIntent
     )

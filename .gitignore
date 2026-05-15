@@ -1,7 +1,6 @@
 /local.properties
 /.idea/caches
 /.idea/libraries
-/.idea/modules.xml
 /.idea/workspace.xml
 /.idea/navEditor.xml
 /.idea/assetWizardSettings.xml
@@ -12,10 +11,15 @@
 .cxx
 local.properties
 
+# iOS / CocoaPods (generated locally)
+iosApp/Podfile.lock
+iosApp/Pods/*
+shared/shared.podspec
 
 ### Android ###
 # Gradle files
 .gradle/
+.kotlin/
 build/
 
 # Local configuration file (sdk path, etc)
@@ -32,7 +36,12 @@ output.json
 
 # IntelliJ
 *.iml
-.idea/
+.idea/*
+!.idea/xcode.xml
+!.idea/modules.xml
+!.idea/.name
+!.idea/EasyRecipe.iosApp.iml
+!.idea/EasyRecipe.iosApp.iosApp.iml
 misc.xml
 deploymentTargetDropDown.xml
 render.experimental.xml
@@ -116,6 +125,8 @@ proguard/
 /*/*/production
 .navigation/
 *.ipr
+xcuserdata/
+*.xcuserstate
 *~
 *.swp
 
@@ -142,12 +153,10 @@ obj/
 .idea/shelf/
 .idea/workspace.xml
 .idea/tasks.xml
-.idea/.name
 .idea/compiler.xml
 .idea/copyright/profiles_settings.xml
 .idea/encodings.xml
 .idea/misc.xml
-.idea/modules.xml
 .idea/scopes/scope_settings.xml
 .idea/dictionaries
 .idea/vcs.xml

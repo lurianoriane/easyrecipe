@@ -52,7 +52,7 @@ class SearchRecipeViewModel(
 
     private fun getRecipes(nameRecipe: String) {
         viewModelScope.launch {
-            useCase.searchRecipes(nameRecipe).flowOn(Dispatchers.IO).onStart {
+            useCase.searchRecipes(nameRecipe).flowOn(Dispatchers.Default).onStart {
                 _uiState.update { it.copy(isLoading = true, isError = false) }
             }.catch {
                 _uiState.update { it.copy(isError = true, isLoading = false) }

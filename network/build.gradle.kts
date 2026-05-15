@@ -10,6 +10,10 @@ kotlin {
         compileSdk = 36
         minSdk = 24
     }
+    iosX64()
+    iosArm64()
+    iosSimulatorArm64()
+
     jvm {
         compilations.configureEach {
             compileTaskProvider.configure {
@@ -23,8 +27,16 @@ kotlin {
         commonMain.dependencies {
             implementation(libs.serialization)
             implementation(libs.bundles.ktor.default)
-            implementation(libs.ktor.client.okhttp)
             implementation(libs.koin.core)
+        }
+        androidMain.dependencies {
+            implementation(libs.ktor.client.okhttp)
+        }
+        jvmMain.dependencies {
+            implementation(libs.ktor.client.okhttp)
+        }
+        iosMain.dependencies {
+            implementation(libs.ktor.client.darwin)
         }
     }
 }

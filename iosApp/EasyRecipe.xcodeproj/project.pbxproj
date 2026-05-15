@@ -1,0 +1,427 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		23D883E858503BB5642A5992 /* EasyRecipeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C9FCA4BF9164A147D47A6E /* EasyRecipeApp.swift */; };
+		4F92E9581FADE8D7F71DD359 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E691CC7655CAD102D9CDFAA /* Foundation.framework */; };
+		B14D353A3D1311A69D286013 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEF96778D6B0ADE9359E2F40 /* Assets.xcassets */; };
+		C08C93146C719B2C875E8FB6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5920ADFF3B540740E4D69F89 /* Preview Assets.xcassets */; };
+		E6E8CECA8D113D7639F7ACAF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F9E8C11DEB0C1CE0AF6626 /* ContentView.swift */; };
+		F6086EB4BCB6B573E015CAC9 /* Pods_EasyRecipe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3511CD96513C8A75FB05C90 /* Pods_EasyRecipe.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1E691CC7655CAD102D9CDFAA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		39B6A15D9075882746EED756 /* Pods-EasyRecipe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyRecipe.release.xcconfig"; path = "Target Support Files/Pods-EasyRecipe/Pods-EasyRecipe.release.xcconfig"; sourceTree = "<group>"; };
+		5920ADFF3B540740E4D69F89 /* Preview Assets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		68F9E8C11DEB0C1CE0AF6626 /* ContentView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		6F412EE75CEF0949D923D7E6 /* Pods-EasyRecipe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyRecipe.debug.xcconfig"; path = "Target Support Files/Pods-EasyRecipe/Pods-EasyRecipe.debug.xcconfig"; sourceTree = "<group>"; };
+		A4C9FCA4BF9164A147D47A6E /* EasyRecipeApp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EasyRecipeApp.swift; sourceTree = "<group>"; };
+		C3511CD96513C8A75FB05C90 /* Pods_EasyRecipe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasyRecipe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA3C53066E9323AC59C13BCB /* EasyRecipe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyRecipe.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5225DCEFE11F368B6D4E4CA /* EasyRecipe-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "EasyRecipe-Info.plist"; sourceTree = "<group>"; };
+		FEF96778D6B0ADE9359E2F40 /* Assets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		705B1A1BAB37D3C17AAD7495 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F92E9581FADE8D7F71DD359 /* Foundation.framework in Frameworks */,
+				F6086EB4BCB6B573E015CAC9 /* Pods_EasyRecipe.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		00F27998EFF9DF577C55B2EC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CE506E019612E72452115169 /* iOS */,
+				C3511CD96513C8A75FB05C90 /* Pods_EasyRecipe.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		75EA874039F0AB9B84178FA8 = {
+			isa = PBXGroup;
+			children = (
+				D0507B5069AB0C86EEEA4702 /* Products */,
+				00F27998EFF9DF577C55B2EC /* Frameworks */,
+				8EBFED7C64CFA7E0C142E059 /* iosApp */,
+				E5225DCEFE11F368B6D4E4CA /* EasyRecipe-Info.plist */,
+				84A5D627C5FB56606AEBC33C /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		84A5D627C5FB56606AEBC33C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				39B6A15D9075882746EED756 /* Pods-EasyRecipe.release.xcconfig */,
+				6F412EE75CEF0949D923D7E6 /* Pods-EasyRecipe.debug.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		8EBFED7C64CFA7E0C142E059 /* iosApp */ = {
+			isa = PBXGroup;
+			children = (
+				A4C9FCA4BF9164A147D47A6E /* EasyRecipeApp.swift */,
+				68F9E8C11DEB0C1CE0AF6626 /* ContentView.swift */,
+				FEF96778D6B0ADE9359E2F40 /* Assets.xcassets */,
+				D0FADAE742FC1A00B369436C /* Preview Content */,
+			);
+			name = iosApp;
+			path = iosApp;
+			sourceTree = "<group>";
+		};
+		CE506E019612E72452115169 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				1E691CC7655CAD102D9CDFAA /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		D0507B5069AB0C86EEEA4702 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DA3C53066E9323AC59C13BCB /* EasyRecipe.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D0FADAE742FC1A00B369436C /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				5920ADFF3B540740E4D69F89 /* Preview Assets.xcassets */,
+			);
+			name = "Preview Content";
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		466AB6902F6E2F40D9381BD5 /* EasyRecipe */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D89DE12F7072C44043DA8A82 /* Build configuration list for PBXNativeTarget "EasyRecipe" */;
+			buildPhases = (
+				8E55C1C04CB1C5FABE3A48D1 /* [CP] Check Pods Manifest.lock */,
+				C67BDD49E86AF82709632E02 /* Sources */,
+				705B1A1BAB37D3C17AAD7495 /* Frameworks */,
+				6B44A643AD2C4E198A64EB8D /* Resources */,
+				F8239E04864CE9F25B4FA04A /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EasyRecipe;
+			productName = EasyRecipe;
+			productReference = DA3C53066E9323AC59C13BCB /* EasyRecipe.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E8F4342A7B0E2C0D876F1BA7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1650;
+				LastUpgradeCheck = 1650;
+				TargetAttributes = {
+					466AB6902F6E2F40D9381BD5 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+				};
+			};
+			buildConfigurationList = 56E4340E275E79CE9C95D43C /* Build configuration list for PBXProject "EasyRecipe" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 75EA874039F0AB9B84178FA8;
+			minimizedProjectReferenceProxies = 0;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = D0507B5069AB0C86EEEA4702 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				466AB6902F6E2F40D9381BD5 /* EasyRecipe */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6B44A643AD2C4E198A64EB8D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B14D353A3D1311A69D286013 /* Assets.xcassets in Resources */,
+				C08C93146C719B2C875E8FB6 /* Preview Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8E55C1C04CB1C5FABE3A48D1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EasyRecipe-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F8239E04864CE9F25B4FA04A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EasyRecipe/Pods-EasyRecipe-resources.sh",
+				"${PODS_ROOT}/../../shared/build/compose/cocoapods/compose-resources",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/compose-resources",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EasyRecipe/Pods-EasyRecipe-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C67BDD49E86AF82709632E02 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23D883E858503BB5642A5992 /* EasyRecipeApp.swift in Sources */,
+				E6E8CECA8D113D7639F7ACAF /* ContentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		4CEF31099DE63313E4359B74 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 39B6A15D9075882746EED756 /* Pods-EasyRecipe.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"iosApp/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "EasyRecipe-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lurian.easyrecipe;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		58D25A5526B37E0A7EC0C7E8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		8CB06BF5E7F710CA8F5FE8C9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6F412EE75CEF0949D923D7E6 /* Pods-EasyRecipe.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"iosApp/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "EasyRecipe-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lurian.easyrecipe;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		97B899BFAEDD33A3DF748D0C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		56E4340E275E79CE9C95D43C /* Build configuration list for PBXProject "EasyRecipe" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58D25A5526B37E0A7EC0C7E8 /* Debug */,
+				97B899BFAEDD33A3DF748D0C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D89DE12F7072C44043DA8A82 /* Build configuration list for PBXNativeTarget "EasyRecipe" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4CEF31099DE63313E4359B74 /* Release */,
+				8CB06BF5E7F710CA8F5FE8C9 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E8F4342A7B0E2C0D876F1BA7 /* Project object */;
+}
