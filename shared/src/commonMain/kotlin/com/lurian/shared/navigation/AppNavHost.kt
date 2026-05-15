@@ -4,10 +4,6 @@ import androidx.compose.animation.ExperimentalSharedTransitionApi
 import androidx.compose.animation.SharedTransitionLayout
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.navigation.NavHostController
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
-import androidx.navigation.compose.rememberNavController
 import com.lurian.design_system.components.bottomnavbar.BottomNavItem
 import com.lurian.design_system.components.utils.DesignSystemDrawableRes
 import com.lurian.designsystem.generated.resources.ic_menu_favorite_selected
@@ -24,31 +20,16 @@ import presentation.view.SearchRoute
 @Composable
 fun AppNavHost(
     modifier: Modifier = Modifier,
-    navController: NavHostController = rememberNavController(),
-    startDestination: String = AppNavDestinations.HOME_ROUTE
+    selectedRoute: String = AppNavDestinations.HOME_ROUTE
 ) {
     SharedTransitionLayout {
-        NavHost(
-            navController = navController,
-            startDestination = startDestination,
-            modifier = modifier
-        ) {
+        when (selectedRoute) {
+            AppNavDestinations.HOME_ROUTE,
+            AppNavDestinations.SEARCH_ROUTE,
+            AppNavDestinations.PROFILE_ROUTE,
+            AppNavDestinations.FAVORITE_ROUTE -> SearchRoute(modifier = modifier)
 
-            composable(route = AppNavDestinations.HOME_ROUTE) {
-                SearchRoute()
-            }
-
-            composable(route = AppNavDestinations.SEARCH_ROUTE) {
-                SearchRoute()
-            }
-
-            composable(route = AppNavDestinations.PROFILE_ROUTE) {
-                SearchRoute()
-            }
-
-            composable(route = AppNavDestinations.FAVORITE_ROUTE) {
-                SearchRoute()
-            }
+            else -> SearchRoute(modifier = modifier)
         }
     }
 }

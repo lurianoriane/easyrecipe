@@ -13,6 +13,9 @@ kotlin {
         experimentalProperties["android.experimental.kmp.enableAndroidResources"] = true
 
     }
+    iosX64()
+    iosArm64()
+    iosSimulatorArm64()
 
     jvm {
         compilations.configureEach {
@@ -35,7 +38,6 @@ kotlin {
             implementation(libs.coil.netwok)
             api(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
-            implementation(libs.androidx.navigation.compose)
         }
 
         androidMain.dependencies {
@@ -43,6 +45,15 @@ kotlin {
             implementation(libs.androidx.lifecycle.runtime.ktx)
             implementation(libs.androidx.ui.graphics)
             implementation(compose.preview)
+        }
+        androidMain.dependencies {
+            implementation(libs.ktor.client.okhttp)
+        }
+        jvmMain.dependencies {
+            implementation(libs.ktor.client.okhttp)
+        }
+        iosMain.dependencies {
+            implementation(libs.ktor.client.darwin)
         }
     }
 }

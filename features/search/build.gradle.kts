@@ -21,6 +21,10 @@ kotlin {
             }
         }
     }
+    iosX64()
+    iosArm64()
+    iosSimulatorArm64()
+
     jvm {
         compilations.configureEach {
             compileTaskProvider.configure {
@@ -34,9 +38,10 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             implementation(libs.serialization)
-            implementation(libs.ktor.client.okhttp)
+            implementation(libs.ktor.client.core)
             implementation(libs.koin.core)
             implementation(libs.koin.compose.viewmodel)
+            implementation(libs.androidx.lifecycle.viewmodel)
             implementation(compose.materialIconsExtended)
             implementation(project(":network"))
             implementation(project(":features:meal-type"))

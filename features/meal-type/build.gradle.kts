@@ -8,6 +8,10 @@ kotlin {
         namespace = "com.lurian.meal_type"
         compileSdk = 34
     }
+    iosX64()
+    iosArm64()
+    iosSimulatorArm64()
+
     jvm {
         compilations.configureEach {
             compileTaskProvider.configure {
